@@ -1,10 +1,33 @@
 import React,{Component} from 'react'
 import House from '../House/House'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 
 
-export default class Dashboard extends Component{
+class Dashboard extends Component{
+    constructor(){
+        super()
+    }
     render(){
-        return <div>Dashboard<House/></div>
+        //let housesToDisplay = this.state.houses.map(<h2>House</h2>)
+        return <div>Dashboard<House/><Link to='/wizard'><button>Add New Property</button></Link>
+        <h2>{this.props.name}</h2>
+        <h2>{this.props.address}</h2>
+        <h2>{this.props.city}</h2>
+        <h2>{this.props.state}</h2>
+        <h2>{this.props.zipcode}</h2>
+        </div>
     }
 }
+function mapStateToProps(state){
+    console.log(state)
+    return({
+    name: state.name,
+    address: state.address,
+    city: state.city,
+    state: state.state,
+    zipcode: state.zipcode
+    })
+}
+export default connect(mapStateToProps)(Dashboard)

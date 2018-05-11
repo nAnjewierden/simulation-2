@@ -35,6 +35,7 @@ class Wizard extends Component{
         return <div>
             <div>Wizard</div>
             <div><Link to='/'><button>Cancel</button></Link></div>
+            <div>{this.props.match.params.id}</div>
             <form>
                 <div>Name: <input onChange={(ele) => this.props.dispatch(updateName(ele.target.value))} type='text'/></div>
                 <div>Address: <input onChange={(ele) => this.props.dispatch(updateAddress(ele.target.value))} type='text'/></div>

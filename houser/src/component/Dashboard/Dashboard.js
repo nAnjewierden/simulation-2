@@ -8,10 +8,13 @@ import {connect} from 'react-redux'
 class Dashboard extends Component{
     constructor(){
         super()
+        this.state={
+            aPassedthing: 'match!'
+        }
     }
     render(){
         //let housesToDisplay = this.state.houses.map(<h2>House</h2>)
-        return <div>Dashboard<House/><Link to='/wizard'><button>Add New Property</button></Link>
+        return <div>Dashboard<House/><Link to={`/wizard/${3}`}><button>Add New Property</button></Link>
         <h2>{this.props.name}</h2>
         <h2>{this.props.address}</h2>
         <h2>{this.props.city}</h2>
